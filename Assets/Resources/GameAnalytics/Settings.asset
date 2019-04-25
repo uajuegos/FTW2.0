@@ -24,21 +24,26 @@ MonoBehaviour:
   UserMessagesSubmitted: 0
   UserMessagesFailed: 0
   CustomArea: 
-  gameKey: []
-  secretKey: []
-  Build: []
-  SelectedPlatformStudio: []
-  SelectedPlatformGame: []
-  SelectedPlatformGameID: 
-  SelectedStudio: 
-  SelectedGame: 
+  gameKey:
+  - a3dc62d470da33f25a0dcf0adf68350d
+  secretKey:
+  - 260467c0ff386067a6362d078d738c58d12c8d81
+  Build:
+  - 0.1
+  SelectedPlatformStudio:
+  - UAJGAMES
+  SelectedPlatformGame:
+  - FindTheWay
+  SelectedPlatformGameID: 8b1b0100
+  SelectedStudio: 01000000
+  SelectedGame: 01000000
   NewVersion: 
   Changes: 
-  SignUpOpen: 1
+  SignUpOpen: 0
   StudioName: 
-  GameName: 
-  EmailGA: 
-  IntroScreen: 1
+  GameName: FindTheWay
+  EmailGA: uajgames@gmail.com
+  IntroScreen: 0
   InfoLogEditor: 1
   InfoLogBuild: 1
   VerboseLogBuild: 0
@@ -50,13 +55,13 @@ MonoBehaviour:
   CustomDimensions03: []
   ResourceItemTypes: []
   ResourceCurrencies: []
-  LastCreatedGamePlatform: 0
-  Platforms: 
+  LastCreatedGamePlatform: -1
+  Platforms: 02000000
   CurrentInspectorState: 0
   ClosedHints: 
   DisplayHints: 0
   DisplayHintsScrollState: {x: 0, y: 0}
-  Logo: {fileID: 0}
+  Logo: {fileID: 2800000, guid: 98df8f9c5678a4e5d964caa1244e8958, type: 3}
   UpdateIcon: {fileID: 0}
   InfoIcon: {fileID: 0}
   DeleteIcon: {fileID: 0}
@@ -78,7 +83,7 @@ MonoBehaviour:
   IncludeGooglePlay: 1
   FpsCriticalThreshold: 20
   FpsCirticalSubmitInterval: 1
-  PlatformFoldOut: 
+  PlatformFoldOut: 01
   CustomDimensions01FoldOut: 0
   CustomDimensions02FoldOut: 0
   CustomDimensions03FoldOut: 0
