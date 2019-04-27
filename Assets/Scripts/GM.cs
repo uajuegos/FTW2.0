@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using GameAnalyticsSDK;
 
 /// <summary>
 /// Script Game Manager. Se encarga de centralizar operaciones como llamar al canvas, poner el juego en pausa, controlar el estado de la partida...
@@ -149,7 +150,11 @@ public class GM : MonoBehaviour
        
 
     }
-  
+
+    private void Start()
+    {
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
+    }
 
     /// <summary>
     /// Este método se encarga de llamar al solver A* y recibe una lista con el camino óptimo desde la posición (x,y) hasta la meta.
@@ -249,6 +254,9 @@ public class GM : MonoBehaviour
 
             Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, true);
 
+
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa, numEstr);
+
             int estrellasActuales = PlayerPrefs.HasKey(nivelMapa) ? PlayerPrefs.GetInt(nivelMapa) : 0;
 
             if (numEstr > estrellasActuales)
@@ -263,6 +271,8 @@ public class GM : MonoBehaviour
         {
             panelGameOver.gameObject.SetActive(true);
             Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, false);
+            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
+
         }
     }
 

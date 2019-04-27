@@ -53,7 +53,8 @@ MonoBehaviour:
   CustomDimensions01: []
   CustomDimensions02: []
   CustomDimensions03: []
-  ResourceItemTypes: []
+  ResourceItemTypes:
+  - Empty
   ResourceCurrencies: []
   LastCreatedGamePlatform: -1
   Platforms: 02000000

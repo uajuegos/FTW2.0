@@ -7,7 +7,7 @@ public class Example : MonoBehaviour
     {
         //Hay que inicializar manualmente la SDK. Se pueden generar eventos después de esta llamada
         GameAnalytics.Initialize();
-        ProgressionEvent();
+       // ProgressionEvent();
     }
 
     /// <summary>
@@ -25,7 +25,6 @@ public class Example : MonoBehaviour
     /// </summary>
     private void ResourceEvent()
     {
-
     }
 
     /// <summary>
@@ -34,7 +33,8 @@ public class Example : MonoBehaviour
     /// </summary>
     private void ProgressionEvent()
     {
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Dificultad1", "Nivel2", 10);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Dificultad1", "Nivel1", 3);
+        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Dificultad1", "Nivel2");
     }
 
     /// <summary>
@@ -63,6 +63,4 @@ public class Example : MonoBehaviour
     {
         //GameAnalytics.SetCustomDimension01()
     }
-
-
 }

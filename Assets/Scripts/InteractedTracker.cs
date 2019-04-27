@@ -1,6 +1,7 @@
 ﻿using RAGE.Analytics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class InteractedTracker : MonoBehaviour
 {
@@ -20,6 +21,8 @@ public class InteractedTracker : MonoBehaviour
             if (i == 0)
             {
                 Tracker.T.setVar("empty", 1);
+                GameAnalytics.NewDesignEvent("Se ha pulsado: empty");
+
             }
             else
             {
@@ -28,7 +31,10 @@ public class InteractedTracker : MonoBehaviour
                     i--;
                     string objName = result[i].name;
                     if (objName != null)
+                    {
                         Tracker.T.setVar(objName, 1);
+                        GameAnalytics.NewDesignEvent("Se ha pulsado: " + objName);
+                    }
                 }
             }
 
@@ -37,6 +43,7 @@ public class InteractedTracker : MonoBehaviour
             string name = scene.name;
 
             Tracker.T.GameObject.Interacted(name);
+            //TODO: Yo no se si hay que generar aquí evento de que cada vez que se hace click se indica en qué escena se hace
         }
     }
 }

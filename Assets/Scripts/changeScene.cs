@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using GameAnalyticsSDK;
 
 public class changeScene : MonoBehaviour
 {
@@ -20,6 +21,7 @@ public class changeScene : MonoBehaviour
 
     IEnumerator LoadScene(string scene)
     {
+        GameAnalytics.NewDesignEvent("Paso a escena: " + scene);
         Tracker.T.Accessible.Accessed(scene, AccessibleTracker.Accessible.Screen);
         transicion.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
