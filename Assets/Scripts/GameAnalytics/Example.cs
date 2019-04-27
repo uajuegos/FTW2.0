@@ -1,21 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using GameAnalyticsSDK;
 
 public class Example : MonoBehaviour
 {
-
-    // Use this for initialization
     void Start()
     {
+        //Hay que inicializar manualmente la SDK. Se pueden generar eventos después de esta llamada
+        GameAnalytics.Initialize();
         ProgressionEvent();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     /// <summary>
