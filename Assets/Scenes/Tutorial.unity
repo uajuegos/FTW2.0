@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0040869145, g: 0.00022360071, b: 0.000000057131658,
+  m_IndirectSpecularColor: {r: 0.0040869084, g: 0.00022360052, b: 0.000000057131658,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -2803,6 +2803,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270863965}
   - component: {fileID: 270863964}
+  - component: {fileID: 270863966}
   m_Layer: 0
   m_Name: CamaraGame
   m_TagString: Untagged
@@ -2845,6 +2846,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &270863966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 270863963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4785d5a7f452b8f4ba09f1468f35dd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &272570874
 GameObject:
   m_ObjectHideFlags: 0
@@ -11531,7 +11543,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.087000005, y: 0.11330495}
   m_AnchorMax: {x: 0.9236197, y: 0.9333476}
-  m_AnchoredPosition: {x: -1.5, y: -4.899948}
+  m_AnchoredPosition: {x: -1.5, y: -4.8999634}
   m_SizeDelta: {x: -15.700001, y: -3.6000004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1126348959
@@ -14057,6 +14069,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1366618098}
+  - component: {fileID: 1366618099}
   m_Layer: 0
   m_Name: CameraPausa
   m_TagString: Untagged
@@ -14079,6 +14092,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1366618099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1366618097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4785d5a7f452b8f4ba09f1468f35dd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1369190836
 Prefab:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.004086941, g: 0.00022360186, b: 0.000000057081085,
+  m_IndirectSpecularColor: {r: 0.004086935, g: 0.0002236016, b: 0.000000057081085,
     a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -7143,6 +7143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 329235478}
   - component: {fileID: 329235477}
+  - component: {fileID: 329235479}
   m_Layer: 0
   m_Name: CamaraGame
   m_TagString: Untagged
@@ -7185,6 +7186,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &329235479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 329235476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4785d5a7f452b8f4ba09f1468f35dd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &333789334
 Prefab:
   m_ObjectHideFlags: 0
@@ -30168,6 +30180,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1695733970}
+  - component: {fileID: 1695733971}
   m_Layer: 0
   m_Name: CameraPausa
   m_TagString: Untagged
@@ -30190,6 +30203,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1695733971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1695733969}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4785d5a7f452b8f4ba09f1468f35dd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1702430807
 Prefab:
   m_ObjectHideFlags: 0
@@ -35636,6 +35660,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: LevelGeneralSelector
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 948608190}
+        m_MethodName: SendTrace
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Se ha salido del nivel1, mapa1
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

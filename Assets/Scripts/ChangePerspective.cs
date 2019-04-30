@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using GameAnalyticsSDK;
 
 
 public class ChangePerspective : MonoBehaviour {
@@ -23,6 +24,9 @@ public class ChangePerspective : MonoBehaviour {
         cameraGameIso.gameObject.SetActive(iso);
         if (!iso) button.GetComponent<Image>().sprite = isoSprite;
         else button.GetComponent<Image>().sprite = cenitSprite;
+        string pers = "isometrica";
+        if (!iso) pers = "cenital";
+        GameAnalytics.NewDesignEvent("Ha cambiado de perspectiva a: "+ pers);
         
     }
 }

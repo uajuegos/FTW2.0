@@ -1,7 +1,7 @@
 ﻿using AStar;
-using RAGE.Analytics;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using GameAnalyticsSDK;
@@ -199,6 +199,7 @@ public class GM : MonoBehaviour
 
             if (paused)
             {
+                GameAnalytics.NewDesignEvent("Se ha mirado el mapa en la escena: " + SceneManager.GetActiveScene().name);
                 ImageConsumo.SetActive(false);
                 metaO.GetComponent<MeshRenderer>().enabled = true;
                 x = Mathf.FloorToInt(car.gameObject.transform.position.x);
@@ -248,12 +249,6 @@ public class GM : MonoBehaviour
             else if (consumo <= consumoIdeal + 25) numEstr = 1;
             else  numEstr = 0;
 
-            /* Guardamos el número de estrellas que hemos conseguido si el número de estrellas 
-             * es mayor al que teníamos anteriormente */
-            Tracker.T.setVar("Estrellas " + nivelMapa, numEstr);
-
-            Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, true);
-
 
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa, numEstr);
 
@@ -270,7 +265,6 @@ public class GM : MonoBehaviour
         else
         {
             panelGameOver.gameObject.SetActive(true);
-            Tracker.T.Completable.Completed(nivelMapa, CompletableTracker.Completable.Level, false);
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
 
         }

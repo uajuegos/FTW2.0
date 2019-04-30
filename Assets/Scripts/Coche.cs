@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using RAGE.Analytics;
 using System.Collections;
 using GameAnalyticsSDK;
 
@@ -136,7 +135,7 @@ public class Coche : MonoBehaviour
                 player.gameObject.transform.Rotate(new Vector3(0, 0, -90));
                 dir = (dir + 1) % 4;
                 ++derecha;
-                Tracker.T.setVar("Derecha", derecha);
+               
                 GameAnalytics.NewDesignEvent("Flecha pulsada: Derecha");
             }
             else if (s == "Izquierda")
@@ -146,13 +145,13 @@ public class Coche : MonoBehaviour
                 dir = (dir - 1);
                 if (dir < 0) dir = 3;
                 ++izquierda;
-                Tracker.T.setVar("Izquierda", izquierda);
+                
                 GameAnalytics.NewDesignEvent("Flecha pulsada: Izquierda");
             }
             else
             {
                 ++recto;
-                Tracker.T.setVar("Recto", recto);
+               
                 GameAnalytics.NewDesignEvent("Flecha pulsada: Recto");
 
             }
