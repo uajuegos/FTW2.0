@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 /// <summary>
 /// Script Game Manager. Se encarga de centralizar operaciones como llamar al canvas, poner el juego en pausa, controlar el estado de la partida...
@@ -30,7 +31,7 @@ public class GMTutorial : GM
         }
 
     }
-    
+
     void Awake()
     {
         aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
@@ -74,7 +75,7 @@ public class GMTutorial : GM
         solver.ActualizaMapa(mapa);
         meta.x = Mathf.FloorToInt(metaO.transform.position.x); meta.y = Mathf.FloorToInt(-metaO.transform.position.y);
 
-        
+
 
     }
 
@@ -82,17 +83,17 @@ public class GMTutorial : GM
     /// <summary>
     /// Se llama cuando se pulsa el botón de Pausa
     /// </summary>
-     public override void OnMapClicked(GameObject texto)
+    public override void OnMapClicked(GameObject texto)
     {
         //Debug.Log(indTutorial);
-        if (indTutorial == 0 || indTutorial == 5 || indTutorial>= 8)
+        if (indTutorial == 0 || indTutorial == 5 || indTutorial >= 8)
         {
             Debug.Log(indTutorial);
             actualizaTutorial();
         }
         else return;
-        
-       int num = 100;
+
+        int num = 100;
         if (texto != null) num = int.Parse(texto.GetComponent<Text>().text);
         Debug.Log(num);
         if (num > 0)
@@ -102,7 +103,7 @@ public class GMTutorial : GM
             car.transform.Find("Posicion").gameObject.SetActive(paused);
             cameraPausa.gameObject.SetActive(paused);
             cameraPrincipal.gameObject.SetActive(!paused);
-            
+
 
             if (paused)
             {
@@ -117,7 +118,7 @@ public class GMTutorial : GM
                 //contexto.SetActive(true);
 
             }
-           else
+            else
             {
                 manoMapa.SetActive(false);
                 ImageConsumo.SetActive(true);
@@ -135,7 +136,12 @@ public class GMTutorial : GM
 
     }
 
-    
+    public override void GameOver(bool win)
+    {
+        base.GameOver(win);
+        if (win)
+            Analytics.CustomEvent("Tutorial Done");
+    }
     void actualizaTutorial()
     {
         switch (indTutorial)
@@ -193,13 +199,13 @@ public class GMTutorial : GM
     private void Update()
     {
         if (!car.transform.Find("Coche").GetComponent<Car>().IsMoving() && indTutorial == 0) actualizaTutorial();
-        if (indTutorial <= 8&& indTutorial != 5 && Input.GetMouseButtonDown(0)) actualizaTutorial();
+        if (indTutorial <= 8 && indTutorial != 5 && Input.GetMouseButtonDown(0)) actualizaTutorial();
         if (Input.GetMouseButtonDown(0))
         {
             timeBlocked = 10;
             recordatorio.SetActive(false);
         }
-        if(timeBlocked <= 0)
+        if (timeBlocked <= 0)
         {
             recordatorio.SetActive(true);
             timeBlocked = 10;

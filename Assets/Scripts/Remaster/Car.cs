@@ -17,6 +17,7 @@ public class Car : MonoBehaviour {
     bool moving = true;
     bool OnMove = false;
 
+    public int Moves;
     /// <summary>
     /// Objeto del GUI que muestra el combustible.
     /// </summary>
@@ -49,6 +50,9 @@ public class Car : MonoBehaviour {
 
 
     void Start () {
+
+        Moves = 0;
+
         map = new int[high, width];
         int it = 0;
         for (int i = 0; i < high; i++)
@@ -83,7 +87,6 @@ public class Car : MonoBehaviour {
 
     public bool MoveToRight()
     {
-        
         if (map[posY, posX + 1] == 1 && moving) posX++;
         else return false;
         dir = 0;
@@ -96,7 +99,9 @@ public class Car : MonoBehaviour {
 
         int ind = posY * (width - 1) + posY + (posX);
         float x  = level.transform.GetChild(ind).gameObject.transform.position.x;
-        
+
+        Moves++;
+
         //transform.position = new Vector3(x, transform.position.y, transform.position.z);
         StartCoroutine(move(new Vector3(x, transform.position.y, transform.position.z), 20.0f));
         return true;
@@ -116,6 +121,7 @@ public class Car : MonoBehaviour {
         }
         int ind = posY * (width - 1) + posY + (posX);
         float x = level.transform.GetChild(ind).gameObject.transform.position.x;
+        Moves++;
 
         StartCoroutine(move(new Vector3(x, transform.position.y, transform.position.z), 20.0f));
 
@@ -132,6 +138,8 @@ public class Car : MonoBehaviour {
         }
         int ind = posY * (width - 1) + posY + posX;
         float y = level.transform.GetChild(ind).gameObject.transform.position.y;
+
+        Moves++;
         StartCoroutine(move(new Vector3(transform.position.x, y, transform.position.z), 20.0f));
 
         return true;
@@ -150,6 +158,8 @@ public class Car : MonoBehaviour {
 
         int ind = posY * (width - 1) + posY + posX;
         float y = level.transform.GetChild(ind).gameObject.transform.position.y;
+
+        Moves++;
         StartCoroutine(move(new Vector3(transform.position.x, y, transform.position.z), 20.0f));
 
         return true;

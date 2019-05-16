@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using System.Collections;
 using GameAnalyticsSDK;
+using UnityEngine.Analytics;
 
 /// <summary>
 /// Script Game Manager. Se encarga de centralizar operaciones como llamar al canvas, poner el juego en pausa, controlar el estado de la partida...
 /// </summary>
 public class GM : MonoBehaviour
 {
+    public static GM Instance;
 
     //Atributos para el algoritmo de pathfinding A*
     protected AStarSolver solver;
@@ -97,6 +99,9 @@ public class GM : MonoBehaviour
     /// Imagen con el consumo
     /// </summary>
     public GameObject ImageConsumo;
+
+    private int mapLook;
+
     bool finished = false;
 
     IEnumerator fadeOut()
@@ -111,6 +116,10 @@ public class GM : MonoBehaviour
     protected AudioSource aS;
     void Awake()
     {
+        Instance = this;
+
+        mapLook = 0;
+
         aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         StartCoroutine(fadeOut());
         consumoIdeal = -1;
@@ -154,6 +163,8 @@ public class GM : MonoBehaviour
     private void Start()
     {
         GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
+        Analytics.CustomEvent("Level Start", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa } });
+   
     }
 
     /// <summary>
@@ -186,6 +197,7 @@ public class GM : MonoBehaviour
     /// </summary>
     public virtual void OnMapClicked(GameObject texto)
     {
+
         int num = 100;
         if (texto != null) num = int.Parse(texto.GetComponent<Text>().text);
         if (num > 0 && !finished)
@@ -199,6 +211,7 @@ public class GM : MonoBehaviour
 
             if (paused)
             {
+                mapLook++;
                 GameAnalytics.NewDesignEvent("Se ha mirado el mapa en la escena: " + SceneManager.GetActiveScene().name);
                 ImageConsumo.SetActive(false);
                 metaO.GetComponent<MeshRenderer>().enabled = true;
@@ -249,6 +262,7 @@ public class GM : MonoBehaviour
             else if (consumo <= consumoIdeal + 25) numEstr = 1;
             else  numEstr = 0;
 
+            Analytics.CustomEvent("Level Complete", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa },{"Stars", numEstr },{"CheckMap",mapLook },{"Movements",car.GetComponent<Car>().Moves } });
 
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa, numEstr);
 
@@ -265,6 +279,7 @@ public class GM : MonoBehaviour
         else
         {
             panelGameOver.gameObject.SetActive(true);
+            Analytics.CustomEvent("Level Fail", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa }, { "CheckMap", mapLook } });
             GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
 
         }

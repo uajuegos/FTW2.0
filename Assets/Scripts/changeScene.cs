@@ -2,6 +2,8 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using GameAnalyticsSDK;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class changeScene : MonoBehaviour
 {
@@ -23,14 +25,16 @@ public class changeScene : MonoBehaviour
     public void SendTrace(string traceLog)
     {
         GameAnalytics.NewDesignEvent(traceLog);
+        Analytics.CustomEvent("Exit Level", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
+
     }
     IEnumerator LoadScene(string scene)
     {
         GameAnalytics.NewDesignEvent("Paso a escena: " + scene);
-       
+        Analytics.CustomEvent("Change Scene:", new Dictionary<string, object> { { "Scene", scene } });
+
         transicion.SetTrigger("end");
         yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene(scene);
     }
-
 }

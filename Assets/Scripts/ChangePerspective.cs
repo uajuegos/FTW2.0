@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GameAnalyticsSDK;
-
+using UnityEngine.Analytics;
 
 public class ChangePerspective : MonoBehaviour {
 
@@ -27,6 +27,7 @@ public class ChangePerspective : MonoBehaviour {
         string pers = "isometrica";
         if (!iso) pers = "cenital";
         GameAnalytics.NewDesignEvent("Ha cambiado de perspectiva a: "+ pers);
-        
+
+        Analytics.CustomEvent("Pespective changed", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
     }
 }

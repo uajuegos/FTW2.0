@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using GameAnalyticsSDK;
+using UnityEngine.Analytics;
+using System.Collections.Generic;
 
 public class InteractedTracker : MonoBehaviour
 {
@@ -21,6 +23,8 @@ public class InteractedTracker : MonoBehaviour
             if (i == 0)
             {
                 GameAnalytics.NewDesignEvent("Se ha pulsado: empty en la escena: " +name);
+
+                Analytics.CustomEvent("Pulsación", new Dictionary<string, object> { { "Scene", scene },{"Object", "null"} });
                 Debug.Log("Se ha pulsado empty");
             }
             else
@@ -32,6 +36,8 @@ public class InteractedTracker : MonoBehaviour
                     if (objName != null)
                     {
                         GameAnalytics.NewDesignEvent("Se ha pulsado: " + objName+ " en la escena: "+ name);
+                        Analytics.CustomEvent("Pulsación", new Dictionary<string, object> { { "Scene", scene }, { "Object", objName } });
+
                         Debug.Log("Se ha pulsado " + objName);
                     }
                 }
