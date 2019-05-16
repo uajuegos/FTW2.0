@@ -136,7 +136,7 @@ public class Coche : MonoBehaviour
                 dir = (dir + 1) % 4;
                 ++derecha;
                
-                GameAnalytics.NewDesignEvent("Flecha pulsada: Derecha");
+               // GameAnalytics.NewDesignEvent("Flecha pulsada: Derecha");
             }
             else if (s == "Izquierda")
             {
@@ -146,13 +146,13 @@ public class Coche : MonoBehaviour
                 if (dir < 0) dir = 3;
                 ++izquierda;
                 
-                GameAnalytics.NewDesignEvent("Flecha pulsada: Izquierda");
+                //GameAnalytics.NewDesignEvent("Flecha pulsada: Izquierda");
             }
             else
             {
                 ++recto;
                
-                GameAnalytics.NewDesignEvent("Flecha pulsada: Recto");
+                //GameAnalytics.NewDesignEvent("Flecha pulsada: Recto");
 
             }
             Arranca();

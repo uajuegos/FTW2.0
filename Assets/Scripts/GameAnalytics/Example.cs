@@ -6,7 +6,7 @@ public class Example : MonoBehaviour
     void Start()
     {
         //Hay que inicializar manualmente la SDK. Se pueden generar eventos después de esta llamada
-        GameAnalytics.Initialize();
+       // GameAnalytics.Initialize();
        // ProgressionEvent();
     }
 

@@ -162,7 +162,7 @@ public class GM : MonoBehaviour
 
     private void Start()
     {
-        GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
+        //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
         Analytics.CustomEvent("Level Start", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa } });
    
     }
@@ -212,7 +212,7 @@ public class GM : MonoBehaviour
             if (paused)
             {
                 mapLook++;
-                GameAnalytics.NewDesignEvent("Se ha mirado el mapa en la escena: " + SceneManager.GetActiveScene().name);
+                //GameAnalytics.NewDesignEvent("Se ha mirado el mapa en la escena: " + SceneManager.GetActiveScene().name);
                 ImageConsumo.SetActive(false);
                 metaO.GetComponent<MeshRenderer>().enabled = true;
                 x = Mathf.FloorToInt(car.gameObject.transform.position.x);
@@ -264,7 +264,7 @@ public class GM : MonoBehaviour
 
             Analytics.CustomEvent("Level Complete", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa },{"Stars", numEstr },{"CheckMap",mapLook },{"Movements",car.GetComponent<Car>().Moves } });
 
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa, numEstr);
+            //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa, numEstr);
 
             int estrellasActuales = PlayerPrefs.HasKey(nivelMapa) ? PlayerPrefs.GetInt(nivelMapa) : 0;
 
@@ -280,7 +280,7 @@ public class GM : MonoBehaviour
         {
             panelGameOver.gameObject.SetActive(true);
             Analytics.CustomEvent("Level Fail", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa }, { "CheckMap", mapLook } });
-            GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
+            //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
 
         }
     }

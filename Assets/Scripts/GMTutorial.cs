@@ -34,6 +34,8 @@ public class GMTutorial : GM
 
     void Awake()
     {
+        Instance = this;
+
         aS = GameObject.Find("SoundManager").GetComponent<AudioSource>();
         StartCoroutine(fadeOut());
         manoMapa.gameObject.SetActive(false);

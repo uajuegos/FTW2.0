@@ -13,7 +13,7 @@ public class changeScene : MonoBehaviour
         if (scene != "exit")
             StartCoroutine(LoadScene(scene));
         else {
-            GameAnalytics.NewDesignEvent("Se ha salido del juego");
+            //GameAnalytics.NewDesignEvent("Se ha salido del juego");
 #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
 #else
@@ -24,13 +24,13 @@ public class changeScene : MonoBehaviour
 
     public void SendTrace(string traceLog)
     {
-        GameAnalytics.NewDesignEvent(traceLog);
+       // GameAnalytics.NewDesignEvent(traceLog);
         Analytics.CustomEvent("Exit Level", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
 
     }
     IEnumerator LoadScene(string scene)
     {
-        GameAnalytics.NewDesignEvent("Paso a escena: " + scene);
+        //GameAnalytics.NewDesignEvent("Paso a escena: " + scene);
         Analytics.CustomEvent("Change Scene:", new Dictionary<string, object> { { "Scene", scene } });
 
         transicion.SetTrigger("end");

@@ -26,7 +26,7 @@ public class ChangePerspective : MonoBehaviour {
         else button.GetComponent<Image>().sprite = cenitSprite;
         string pers = "isometrica";
         if (!iso) pers = "cenital";
-        GameAnalytics.NewDesignEvent("Ha cambiado de perspectiva a: "+ pers);
+        //GameAnalytics.NewDesignEvent("Ha cambiado de perspectiva a: "+ pers);
 
         Analytics.CustomEvent("Pespective changed", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
     }
