@@ -64678,6 +64678,7 @@ GameObject:
   - component: {fileID: 1886462348}
   - component: {fileID: 1886462347}
   - component: {fileID: 1886462350}
+  - component: {fileID: 1886462351}
   m_Layer: 0
   m_Name: CamaraPausa
   m_TagString: MainCamera
@@ -64754,6 +64755,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4785d5a7f452b8f4ba09f1468f35dd8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1886462351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1886462346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e22be0d7b35f90047ab8de06329fef11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1886513027 stripped
