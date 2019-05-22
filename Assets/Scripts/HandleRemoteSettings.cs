@@ -21,6 +21,7 @@ public class HandleRemoteSettings : MonoBehaviour {
         objectTitulo = _objectTitulo;
         spriteEspanol = _spriteEspanol;
         spriteEnglish = _spriteEnglish;
+        RemoteSettings.ForceUpdate();
     }
     // Update is called once per frame
 
