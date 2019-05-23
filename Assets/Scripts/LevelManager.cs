@@ -79,8 +79,9 @@ public class LevelManager : MonoBehaviour
                 }
                 ++numMapa;
             }
-            if (!PlayerPrefs.HasKey(nivel) && numNivelesPasados > 2)
-                Analytics.CustomEvent(nivel  +"Completed", new Dictionary<string, object> { });
+            if (PlayerPrefs.HasKey(nivel) && PlayerPrefs.GetInt(nivel) < 2 && numNivelesPasados > 1)
+                Analytics.CustomEvent(nivel, new Dictionary<string, object> { {"prueba", nivel} });
+
 
             PlayerPrefs.SetInt(nivel, numNivelesPasados);
             

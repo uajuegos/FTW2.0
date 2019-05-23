@@ -263,9 +263,9 @@ public class GM : MonoBehaviour
             else  numEstr = 0;
 
             //Analytics.CustomEvent("Level Complete", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa },{"Stars", numEstr },{"CheckMap",mapLook },{"Movements",car.GetComponent<Car>().Moves } });
-            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete "+ numEstr + "Stars", new Dictionary<string, object> { });
-            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete " + mapLook + "CheckMap", new Dictionary<string, object> { });
-            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete " + car.GetComponent<Car>().Moves + "Movements", new Dictionary<string, object> { });
+            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete "+ numEstr + "Stars", new Dictionary<string, object> { { "", "" } });
+            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete " + mapLook + "CheckMap", new Dictionary<string, object> { { "", "" } });
+            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete " + car.GetComponent<Car>().Moves + "Movements", new Dictionary<string, object> { { "", "" } });
 
             Analytics.CustomEvent("Stars" , new Dictionary<string, object> { { "NivelMapa", this.numMapa.ToString() + this.numNivel.ToString() } });
             Analytics.CustomEvent("StarsComplete", new Dictionary<string, object> { { "Mapa", this.numMapa} });
