@@ -262,9 +262,13 @@ public class GM : MonoBehaviour
             else if (consumo <= consumoIdeal + 25) numEstr = 1;
             else  numEstr = 0;
 
-            Analytics.CustomEvent("Level Complete", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa },{"Stars", numEstr },{"CheckMap",mapLook },{"Movements",car.GetComponent<Car>().Moves } });
+            //Analytics.CustomEvent("Level Complete", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa },{"Stars", numEstr },{"CheckMap",mapLook },{"Movements",car.GetComponent<Car>().Moves } });
+            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete "+ numEstr + "Stars", new Dictionary<string, object> { });
+            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete " + mapLook + "CheckMap", new Dictionary<string, object> { });
+            Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete " + car.GetComponent<Car>().Moves + "Movements", new Dictionary<string, object> { });
 
-            //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Complete, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa, numEstr);
+            Analytics.CustomEvent("Stars" , new Dictionary<string, object> { { "NivelMapa", this.numMapa.ToString() + this.numNivel.ToString() } });
+            Analytics.CustomEvent("StarsComplete", new Dictionary<string, object> { { "Mapa", this.numMapa} });
 
             int estrellasActuales = PlayerPrefs.HasKey(nivelMapa) ? PlayerPrefs.GetInt(nivelMapa) : 0;
 

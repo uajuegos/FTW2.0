@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class LevelManager : MonoBehaviour
 {
@@ -78,8 +79,11 @@ public class LevelManager : MonoBehaviour
                 }
                 ++numMapa;
             }
+            if (!PlayerPrefs.HasKey(nivel) && numNivelesPasados > 2)
+                Analytics.CustomEvent(nivel  +"Completed", new Dictionary<string, object> { });
 
             PlayerPrefs.SetInt(nivel, numNivelesPasados);
+            
         }
     }
 }
