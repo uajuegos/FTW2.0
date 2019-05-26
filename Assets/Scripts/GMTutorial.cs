@@ -142,7 +142,8 @@ public class GMTutorial : GM
     {
         base.GameOver(win);
         if (win)
-            Analytics.CustomEvent("Tutorial Done");
+            //Analytics.CustomEvent("Tutorial Done");
+            AnalyticsEvent.TutorialComplete();
     }
     void actualizaTutorial()
     {

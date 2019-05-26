@@ -25,7 +25,8 @@ public class changeScene : MonoBehaviour
     public void SendTrace(string traceLog)
     {
        // GameAnalytics.NewDesignEvent(traceLog);
-        Analytics.CustomEvent("Exit Level", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
+        //Analytics.CustomEvent("Exit Map", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
+        AnalyticsEvent.LevelQuit("Nivel" + GM.Instance.numNivel + "Mapa" +  GM.Instance.numMapa);
 
     }
     IEnumerator LoadScene(string scene)
