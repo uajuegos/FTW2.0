@@ -28,7 +28,8 @@ public class ChangePerspective : MonoBehaviour {
         if (!iso) pers = "cenital";
         //GameAnalytics.NewDesignEvent("Ha cambiado de perspectiva a: "+ pers);
 
-        Analytics.CustomEvent("Pespective changed", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
-        AnalyticsEvent.ScreenVisit("Perspective Changed", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
+        Debug.Log("Perspective Changed Nivel" + GM.Instance.numNivel + "Mapa" + GM.Instance.numMapa);
+        //Analytics.CustomEvent("Pespective changed", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa } });
+        AnalyticsEvent.ScreenVisit("Perspective Changed Nivel" + GM.Instance.numNivel + "Mapa" + GM.Instance.numMapa);
     }
 }

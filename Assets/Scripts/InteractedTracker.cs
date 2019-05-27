@@ -21,7 +21,7 @@ public class InteractedTracker : MonoBehaviour
             if (Physics.Raycast(ray, out hit))
             {
                 Transform objectHit = hit.transform;
-                Debug.Log(objectHit.name);
+                //Debug.Log(objectHit.name);
                 // Do something with the object that was hit by the raycast.
             }
 
@@ -35,8 +35,8 @@ public class InteractedTracker : MonoBehaviour
             {
                 //GameAnalytics.NewDesignEvent("Se ha pulsado: empty en la escena: " +name);
 
-                Analytics.CustomEvent("Pulsación", new Dictionary<string, object> { { "Scene", name },{"Object", "null"} });
-                Debug.Log("Se ha pulsado empty");
+                //Analytics.CustomEvent("Pulsación", new Dictionary<string, object> { { "Scene", name },{"Object", "null"} });
+                //Debug.Log("Se ha pulsado empty");
             }
             else
             {
@@ -47,9 +47,9 @@ public class InteractedTracker : MonoBehaviour
                     if (objName != null)
                     {
                         //GameAnalytics.NewDesignEvent("Se ha pulsado: " + objName+ " en la escena: "+ name);
-                        Analytics.CustomEvent("Pulsación", new Dictionary<string, object> { { "Scene", name }, { "Object", objName } });
+                       // Analytics.CustomEvent("Pulsación", new Dictionary<string, object> { { "Scene", name }, { "Object", objName } });
 
-                        Debug.Log("Se ha pulsado " + objName);
+                       // Debug.Log("Se ha pulsado " + objName);
                     }
                 }
             }

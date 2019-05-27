@@ -163,7 +163,13 @@ public class GM : MonoBehaviour
     private void Start()
     {
         //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Start, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
-        Analytics.CustomEvent("Level Start", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa } });
+
+        Debug.Log("Level Start: " + "Level" + this.numNivel + "Mapa" + this.numMapa);
+
+           AnalyticsEvent.LevelStart("Level" + this.numNivel + "Mapa" + this.numMapa);
+        //Analytics.CustomEvent("Level Start: " + "Level" + this.numNivel + "Mapa" + this.numMapa);
+
+        //Analytics.CustomEvent("Level Start", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa } });
    
     }
 
@@ -264,8 +270,10 @@ public class GM : MonoBehaviour
 
             //Analytics.CustomEvent("Level Complete", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa },{"Stars", numEstr },{"CheckMap",mapLook },{"Movements",car.GetComponent<Car>().Moves } });
 
+            Debug.Log("Complete: " + "Level" + this.numNivel + "Mapa" + this.numMapa + " Stars: " + numEstr + " CheckMap: " + mapLook + " Movements: " + car.GetComponent<Car>().Moves) ;
+
             //ESTE ES EL EVENTO BUENO
-            Analytics.CustomEvent("Complete: " + "Level" + this.numNivel + "Mapa" + this.numMapa, new Dictionary<string, object> { { "Stars", numEstr }, { "CheckMap", mapLook }, { "Movements", car.GetComponent<Car>().Moves } });
+            //Analytics.CustomEvent("Complete: " + "Level" + this.numNivel + "Mapa" + this.numMapa, new Dictionary<string, object> { { "Stars", numEstr }, { "CheckMap", mapLook }, { "Movements", car.GetComponent<Car>().Moves } });
             AnalyticsEvent.LevelComplete("Level" + this.numNivel + "Mapa" + this.numMapa, new Dictionary<string, object> { { "Stars", numEstr }, { "CheckMap", mapLook }, { "Movements", car.GetComponent<Car>().Moves } });
 
             //Analytics.CustomEvent("Level" + this.numNivel + "Mapa" + this.numMapa + "Complete "+ numEstr + "Stars", new Dictionary<string, object> { { "", "" } });
@@ -288,9 +296,11 @@ public class GM : MonoBehaviour
         else
         {
             panelGameOver.gameObject.SetActive(true);
-            Analytics.CustomEvent("Level Fail", new Dictionary<string, object> { { "Nivel", GM.Instance.numNivel }, { "Mapa", GM.Instance.numMapa }, { "CheckMap", mapLook } });
-            //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
+            Debug.Log("Level Fail: " + "Level" + this.numNivel + "Mapa" + this.numMapa + " CheckMap: " + mapLook);
 
+            AnalyticsEvent.LevelFail("Level" + this.numNivel + "Mapa" + this.numMapa, new Dictionary<string, object> { { "CheckMap", mapLook } });
+           // Analytics.CustomEvent("Level Fail", new Dictionary<string, object> { { "Nivel", this.numNivel }, { "Mapa", this.numMapa }, { "CheckMap", mapLook } });
+            //GameAnalytics.NewProgressionEvent(GAProgressionStatus.Fail, "Nivel: " + this.numNivel, "Mapa: " + this.numMapa);
         }
     }
 

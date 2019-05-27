@@ -81,7 +81,8 @@ public class LevelManager : MonoBehaviour
             }
             if (PlayerPrefs.HasKey(nivel) && PlayerPrefs.GetInt(nivel) < 2 && numNivelesPasados > 1)
             {
-                Analytics.CustomEvent(nivel, new Dictionary<string, object> { { "prueba", nivel } });
+                Debug.Log("Level up: " + nivel);
+                //Analytics.CustomEvent(nivel, new Dictionary<string, object> { { "prueba", nivel } });
                 AnalyticsEvent.LevelUp(nivel);
             }
 
